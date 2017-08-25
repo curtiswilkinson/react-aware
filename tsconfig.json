@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es6", "dom", "esnext"],
+    "sourceMap": false,
+    "allowJs": false,
+    "declaration": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "types": [
+    "typePatches"
+  ]
+}
