@@ -13,7 +13,7 @@ export default class Controller extends Component<any, any> {
   }
 
   public static childContextTypes = {
-    update: PropTypes.func,
+    message: PropTypes.func,
     model: PropTypes.object,
     subscribe: PropTypes.func
   }
