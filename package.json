@@ -4,7 +4,8 @@
   "description": "State management for React",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "build": "tslint --project ./tsconfig.json && tsc",
     "clean": "rm -rf dist/ && mkdir -p dist"
   },
@@ -15,11 +16,38 @@
     "react": "^15.6.1"
   },
   "devDependencies": {
+    "@types/jest": "^20.0.8",
     "@types/node": "^8.0.25",
     "@types/prop-types": "^15.5.1",
     "@types/react": "^16.0.5",
+    "jest": "^20.0.4",
     "tslint": "^5.6.0",
     "tslint-react": "^3.2.0",
     "typescript": "^2.4.2"
+  },
+ "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/jest/typescript.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testRegex": "(/src/.*\\.(test|spec))\\.(ts|tsx|js)$"
   }
 }
