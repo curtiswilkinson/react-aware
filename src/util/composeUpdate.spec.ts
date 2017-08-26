@@ -14,7 +14,7 @@ const updateSecondMsg = { type: 'updateSecond' }
 describe('composeUpdate()',  () => {
   it('generates an update function that delegates correctly', () => {
     const updateMap = {
-      first: (model,  msg) => [model, msg],
+      first: (x, y) => [ x, y ],
       second: updateSecondFn
     }
 

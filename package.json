@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build": "tslint --project ./tsconfig.json && tsc",
+    "build": "tslint --project ./tsconfig.json && npm run test && tsc",
     "clean": "rm -rf dist/ && mkdir -p dist"
   },
   "author": "Curtis Wilkinson",
