@@ -1,6 +1,8 @@
 import { Component, Children } from 'react'
 import * as PropTypes from 'prop-types'
 
+import validateUpdate from '../util/validateUpdate'
+
 export default class Controller extends Component<any, any> {
   private model
   private subscriptions: Array<() => void> = []
@@ -28,6 +30,8 @@ export default class Controller extends Component<any, any> {
     super(props, context)
 
     this.model = this.props.model
+
+    validateUpdate(this.props.update)
   }
 
   // add Aware component forceUpdate() callbacks for triggering context-based updates
