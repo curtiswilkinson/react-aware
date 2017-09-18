@@ -1,10 +1,10 @@
-# React-AwareJS
-React-Aware is a small state management library for React, modelled after the Elm Architecture and takes inspiration from Redux (WIP)
+# React Aware
+React Aware is a small state management library for React, modelled after the Elm Architecture and takes inspiration from Redux (WIP)
 
 ## Update
 
 The update function passed to the Controller (see later) is at the core of React-Aware, and will look to familiar to Redux users.
-It should be a function that takes two arguments, the existing model (an object), and a Message: `{ type: '<string>', value: [any, data, type]}`
+It should be a function that takes two arguments, the existing "Model"" (a state object), and a "Message"": `{ type: '<string>', value: [any, data, type]}`
 
 This function must return an Array in the following form (command is optional):
 `[newModelObject, command]`
@@ -13,7 +13,7 @@ A command is simply a promise that will resolve with a new Message, allowing for
 
 Here is an example update function:
 
-```
+```javascript
 const updateFn = (model, msg) => {
   switch(msg.type) {
     case 'updateText': 
@@ -41,14 +41,14 @@ This update function would play out as follows:
 
 ## Controller
 
-The Controller component is what wraps your application. It takes two, mandatory props:
+The Controller component is what wraps your application. It takes two, manditory props:
 
 - `update`, which is a function as seen above
 - `model`, which is an object representing the application state
 
 ### Example Usage
 
-```
+```javascript
 import { Controller } from 'react-aware'
 
 const App = (props) => {
@@ -70,15 +70,16 @@ Making a component "Aware" will expose two react props `message` and `model`.
 
 ### Example Usage
 
-```
+```javascript
 import { Aware } from 'react-aware'
 
 const component = (props) => {
-  const sendNewText = () => this.props.message({ type: 'updateText', value: 'NEWTEXT' })
+  const sendNewText = () => 
+    props.message({ type: 'updateText', value: 'NEWTEXT' })
   
   return (
     <div>
-      { this.props.model.text }
+      { props.model.text }
       <button onClick={ sendNewText }>
         Click Me!
       </button>
@@ -88,3 +89,4 @@ const component = (props) => {
 
 export default Aware(component)
 ```
+
